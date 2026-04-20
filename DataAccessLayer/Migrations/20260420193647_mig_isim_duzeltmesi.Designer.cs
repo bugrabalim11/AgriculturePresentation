@@ -4,6 +4,7 @@ using DataAccessLayer.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(AgricultureContext))]
-    partial class AgricultureContextModelSnapshot : ModelSnapshot
+    [Migration("20260420193647_mig_isim_duzeltmesi")]
+    partial class mig_isim_duzeltmesi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +55,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("AddressID");
 
-                    b.ToTable("Addresses", (string)null);
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Announcement", b =>
@@ -79,7 +82,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("AnnouncementID");
 
-                    b.ToTable("Announcements", (string)null);
+                    b.ToTable("Announcements");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Contact", b =>
@@ -107,7 +110,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("ContactID");
 
-                    b.ToTable("Contacts", (string)null);
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Image", b =>
@@ -128,7 +131,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("ImageID");
 
-                    b.ToTable("Images", (string)null);
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Service", b =>
@@ -153,7 +156,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("ServiceID");
 
-                    b.ToTable("Services", (string)null);
+                    b.ToTable("Services");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Team", b =>
@@ -194,7 +197,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("TeamID");
 
-                    b.ToTable("Teams", (string)null);
+                    b.ToTable("Teams");
                 });
 #pragma warning restore 612, 618
         }

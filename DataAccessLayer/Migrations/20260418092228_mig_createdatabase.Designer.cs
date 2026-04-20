@@ -167,7 +167,7 @@ namespace DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamID"));
 
-                    b.Property<string>("FavcebookUrl")
+                    b.Property<string>("FacebookUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -191,7 +191,7 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("İmageUrl")
+                    b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
