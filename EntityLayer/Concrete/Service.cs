@@ -10,5 +10,7 @@ namespace EntityLayer.Concrete
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string Image { get; set; } = string.Empty;
+        public string Class1 { get; set; }
+        public string Class2 { get; set; }
     }
 }
