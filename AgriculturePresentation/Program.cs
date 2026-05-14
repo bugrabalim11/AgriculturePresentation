@@ -1,4 +1,5 @@
 using BusinessLayer.Abstarct;
+using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EntityFramework;
@@ -19,6 +20,8 @@ builder.Services.AddScoped<IAddressService, AddressManager>();
 builder.Services.AddScoped<IAddressDal, EfAddressDal>();
 builder.Services.AddScoped<IContactService, ContactManager>();
 builder.Services.AddScoped<IContactDal, EfContactDal>();
+builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
+builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 
 builder.Services.AddDbContext<AgricultureContext>();
 builder.Services.AddControllersWithViews();
