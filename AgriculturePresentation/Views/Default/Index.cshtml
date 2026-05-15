@@ -52,142 +52,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         @await Component.InvokeAsync("_TeamPartial")
        
-        @await Component.InvokeAsync("_AnnouncementPartial")       
+        @await Component.InvokeAsync("_AnnouncementPartial")
+        
+        @await Component.InvokeAsync("_GalleryPartial")
+           
 
-        <!--/gallery-->
-        <div class="gallery" id="gallery">
-            <div class="container">
-                <h3 class="tittle">Our Gallery</h3>
-                <p class="heading-btm-w3ls">Suspendisse fringilla pellentesque risus sit amet bibendum.</p>
-                <div class="agile_gallery_grids w3-agile">
-                    <ul class="clearfix demo">
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g1.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g2.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g3.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g4.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g5.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g6.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g7.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g8.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g9.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g10.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g11.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="gallery-grid1">
-                                <img src="~/web/images/g12.jpg" alt=" " class="img-responsive" />
-                                <div class="p-mask">
-                                    <h4>In <span>Harvest</span></h4>
-                                    <p>Neque porro quisquam est, qui dolorem ipsum.</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--//gallery-->
         <!--footer-->
         <div class="contact-agile" id="contact">
             <div class="container">
-                <h3 class="tittle">Contact Us</h3>
-                <p class="heading-btm-w3ls">Suspendisse fringilla pellentesque risus sit amet bibendum.</p>
-                <div class="col-md-3 contact-left">
-                    <h4>Our Address</h4>
-                    <p>1143 New Hampshire Ave NW,</p>
-                    <p>Washington,</p>
-                    <p>DC 20037, USA</p>
-                    <h4>Phone</h4>
-                    <p>+(010) 221 918 811</p>
+                
+                @await Component.InvokeAsync("_AddressPartial")
 
-                </div>
                 <div class="col-md-9 contact-middle">
                     <h2>Say Hello</h2>
                     <form action="#" method="post">
