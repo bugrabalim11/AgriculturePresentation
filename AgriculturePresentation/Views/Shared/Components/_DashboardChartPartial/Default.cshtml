@@ -1,24 +1,105 @@
 ﻿<div class="row">
+    
+    <!-- 1. GRAFİK KARTI (House Prices) -->
     <div class="col-md-7 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <p class="card-title">Cash deposits</p>
-                <p class="mb-4">To start a blog, think of a topic about and first brainstorm party is ways to write details</p>
-                <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3"></div>
-                <canvas id="cash-deposits-chart"></canvas>
+                <!-- Sadece kanvasımızı koyuyoruz, saçma HTML iskeletleri yok -->
+                <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+                
+                <!-- Chart.js kütüphanesini sayfada BİR KERE çağırmamız yeterli -->
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+                
+                <script>
+                    const xyValues = [
+                    {x:50, y:7}, {x:60, y:8}, {x:70, y:8}, {x:80, y:9},
+                    {x:90, y:9}, {x:100, y:9}, {x:110, y:10}, {x:120, y:11},
+                    {x:130, y:14}, {x:140, y:14}, {x:150, y:15}
+                    ];
+
+                    const ctx = document.getElementById('myChart');
+
+                    new Chart(ctx, {
+                    type: "scatter",
+                    data: {
+                    datasets: [{
+                    pointRadius: 4,
+                    pointBackgroundColor: "rgb(0,0,255)",
+                    data: xyValues
+                    }]
+                    },
+                    options: {
+                    plugins: {
+                    legend: { display: false },
+                    title: {
+                    display: true,
+                    text: "House Prices vs. Size",
+                    font: { size: 16 }
+                    }
+                    }
+                    }
+                    });
+                </script>
             </div>
         </div>
     </div>
+
+    <!-- 2. GRAFİK KARTI (Bakliyat Üretimi) -->
     <div class="col-md-5 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <p class="card-title">Total sales</p>
-                <h1>$ 28835</h1>
-                <h4>Gross sales over the years</h4>
-                <p class="text-muted">Today, many people rely on computers to do homework, work, and create or store useful information. Therefore, it is important </p>
-                <div id="total-sales-chart-legend"></div>
+                <canvas id="myChart1" style="width:100%;max-width:600px"></canvas>
+                
+                <script>
+                    const xValues = ["Buğday", "Arpa", "Mısır", "Mercimek", "Pirinç"];
+                    // Sorunu izole etmek için değerleri şimdilik statik bıraktık.
+                    const yValues =[
+                    @(ViewBag.v1 ?? 0),  // C# sayı yolladı, buraya direkt 88 oturacak. Boşsa 0 olacak.
+                    49,
+                    44,
+                    @(ViewBag.v2 ?? 0),
+                    15
+                    ];
+                    const barColors = [
+                    "#b91d47",
+                    "#00aba9",
+                    "#2b5797",
+                    "#e8c3b9",
+                    "#1e7145"
+                    ];
+
+                    // DİKKAT: Üstte 'ctx' kullandık, o yüzden burayı 'ctx1' yaptık!
+                    const ctx1 = document.getElementById('myChart1');
+
+                    new Chart(ctx1, {
+                    type: "bar",
+                    data: {
+                    labels: xValues,
+                    datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                    }]
+                    },
+                    options: {
+                    plugins: {
+                    legend: { display: false },
+                    title: {
+                    display: true,
+                    text: "2026 Bakliyat Üretimi",
+                    font: { size: 16 }
+                    }
+                    },
+                    // İŞTE KRİTİK DOKUNUŞ BURASI (V4 Standartı)
+                    scales: {
+                    y: {
+                    beginAtZero: true
+                    }
+                    }
+                    }
+                    });
+                </script>
             </div>
-            <canvas id="total-sales-chart"></canvas>
         </div>
     </div>
+
 </div>

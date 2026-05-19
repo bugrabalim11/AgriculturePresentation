@@ -26,6 +26,8 @@ builder.Services.AddScoped<IAboutService, AboutManager>();
 builder.Services.AddScoped<IAboutDal, EfAboutDal>();
 builder.Services.AddScoped<IAdminService, AdminManager>();
 builder.Services.AddScoped<IAdminDal, EfAdminDal>();
+builder.Services.AddScoped<IProductService, ProductManager>();
+builder.Services.AddScoped<IProductDal, EfProductDal>();
 
 
 builder.Services.AddDbContext<AgricultureContext>();

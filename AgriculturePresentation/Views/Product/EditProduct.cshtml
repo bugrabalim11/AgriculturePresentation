@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.Product
+
+@{
+    ViewData["Title"] = "EditProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Ürün Güncelleme Sayfası</h4>
+            <form class="forms-sample" method="post">
+                <input type="hidden" asp-for="ProductID" />
+                <div class="form-group">
+                    <label for="Title">İsim</label>
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                    <input type="text" class="form-control" placeholder="ismi giriniz" asp-for="ProductName">
+                    </div>
+                    <div class="form-group">
+                        <label for="Value">Miktar</label>
+                        <span asp-validation-for="Value" class="text-danger"></span>
+                        <input type="text" class="form-control" placeholder="kilogram" asp-for="Value">
+                        </div>
+                            <button type="submit" class="btn btn-outline-info me-2">Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
