@@ -85,5 +85,53 @@ namespace AgriculturePresentation.Controllers
                 }
             }
         }
+
+        public List<AnnouncementModel> AnnouncementList()
+        {
+            List<AnnouncementModel> announcementModels = new List<AnnouncementModel>();
+            using (var context = new AgricultureContext())
+            {
+                announcementModels = context.Announcements.Select(x => new AnnouncementModel
+                {
+                    ID = x.AnnouncementID,
+                    Title = x.Title,
+                    Description = x.Description,
+                    Date = x.Date,
+                    Status = x.Status
+                }).ToList();
+            }
+            return announcementModels;
+        }
+
+        public IActionResult AnnouncementReport()
+        {
+            using (var workBook = new XLWorkbook())
+            {
+                var worksheet = workBook.Worksheets.Add("Duyuru Listesi");
+                worksheet.Cell(1, 1).Value = "Duyuru ID";
+                worksheet.Cell(1, 2).Value = "Duyuru Başlığı";
+                worksheet.Cell(1, 3).Value = "Duyuru Tarihi";
+                worksheet.Cell(1, 4).Value = "Duyuru İçeriği";
+                worksheet.Cell(1, 5).Value = "Durum";
+
+                int contactRowCount = 2;
+                foreach (var item in AnnouncementList())
+                {
+                    worksheet.Cell(contactRowCount, 1).Value = item.ID;
+                    worksheet.Cell(contactRowCount, 2).Value = item.Title;
+                    worksheet.Cell(contactRowCount, 3).Value = item.Date;
+                    worksheet.Cell(contactRowCount, 4).Value = item.Description;
+                    worksheet.Cell(contactRowCount, 5).Value = item.Status;
+                    contactRowCount++;
+                }
+
+                using (var stream = new MemoryStream())
+                {
+                    workBook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "DuyuruRapor.xlsx");
+                }
+            }
+        }
     }
 }
