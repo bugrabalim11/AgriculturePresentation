@@ -4,8 +4,12 @@ using BusinessLayer.Concrete;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EntityFramework;
 using DataAccessLayer.Contexts;
+using OfficeOpenXml;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// EPPlus 8 ve üstü sürümler için yeni Lisans tanımlama kuralı
+ExcelPackage.License.SetNonCommercialPersonal("Buğra");
 
 // Add services to the container.
 builder.Services.AddScoped<IServiceService, ServiceManager>();
