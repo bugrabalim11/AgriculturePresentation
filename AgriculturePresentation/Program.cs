@@ -6,6 +6,7 @@ using DataAccessLayer.Concrete.EntityFramework;
 using DataAccessLayer.Contexts;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using OfficeOpenXml;
 
@@ -38,7 +39,12 @@ builder.Services.AddScoped<IProductDal, EfProductDal>();
 
 
 builder.Services.AddDbContext<AgricultureContext>();
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AgricultureContext>();
+
 builder.Services.AddControllersWithViews();
+
+
 
 builder.Services.AddMvc(Config =>
 {
