@@ -1,6 +1,7 @@
 using BusinessLayer.Abstarct;
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using BusinessLayer.Container;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EntityFramework;
 using DataAccessLayer.Contexts;
@@ -15,32 +16,12 @@ var builder = WebApplication.CreateBuilder(args);
 // EPPlus 8 ve üstü sürümler için yeni Lisans tanımlama kuralı
 ExcelPackage.License.SetNonCommercialPersonal("Buğra");
 
-// Add services to the container.
-builder.Services.AddScoped<IServiceService, ServiceManager>();
-builder.Services.AddScoped<IServiceDal, EfServiceDal>();
-builder.Services.AddScoped<ITeamService, TeamManager>();
-builder.Services.AddScoped<ITeamDal, EfTeamDal>();
-builder.Services.AddScoped<IAnnouncementService, AnnouncementManager>();
-builder.Services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
-builder.Services.AddScoped<IImageService, ImageManager>();
-builder.Services.AddScoped<IImageDal, EfImageDal>();
-builder.Services.AddScoped<IAddressService, AddressManager>();
-builder.Services.AddScoped<IAddressDal, EfAddressDal>();
-builder.Services.AddScoped<IContactService, ContactManager>();
-builder.Services.AddScoped<IContactDal, EfContactDal>();
-builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
-builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
-builder.Services.AddScoped<IAboutService, AboutManager>();
-builder.Services.AddScoped<IAboutDal, EfAboutDal>();
-builder.Services.AddScoped<IAdminService, AdminManager>();
-builder.Services.AddScoped<IAdminDal, EfAdminDal>();
-builder.Services.AddScoped<IProductService, ProductManager>();
-builder.Services.AddScoped<IProductDal, EfProductDal>();
-
 
 builder.Services.AddDbContext<AgricultureContext>();
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AgricultureContext>();
+
+builder.Services.ContainerDependencies();
 
 builder.Services.AddControllersWithViews();
 
